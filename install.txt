@@ -1,0 +1,2 @@
+pip install pipenv
+pipenv install pandas --python 3.11.0
