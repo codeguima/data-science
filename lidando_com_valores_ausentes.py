@@ -37,4 +37,24 @@ df_churn.drop(['customerID'], axis=1, inplace=True)
 #print(df_churn.drop(columns=['TotalCharges'], axis=1))
 
 #remover colunas com valores ausentes
-df_churn.dropna(axis=1)
+#df_churn.dropna(axis=1)
+
+#remover colunas com todos os valores são ausentes
+#print(df_churn.dropna(axis=1, how='all'))
+
+#remover linhas com os valores são ausentes
+#print(df_churn.dropna(axis=0))
+
+#preencher toto os valores ausentes com 0
+#print(df_churn.fillna(0))
+
+#preencher os valores padrão conforme a coluna
+#print(df_churn.fillna(value={'TotalCharges': 0, 'Genero': 'Não Declarado'}))
+
+#preencher todos os valores ausentes de uma coluna com a média
+media_TotalCharges = df_churn.TotalCharges.mean()
+
+print(media_TotalCharges)
+
+#inputar a media no dataframe
+print(df_churn.fillna(value={'TotalCharges': media_TotalCharges }))
