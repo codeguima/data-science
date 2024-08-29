@@ -33,13 +33,40 @@ df_temp = df_customers.merge(df_services, on=['IDCliente'])
 
 df_churn_temp = df_temp.merge(df_contracts, left_on='IDCliente', right_on=['customerID'])
 
-print(df_churn_temp.info())
+#print(df_churn_temp.info())
 
 #UNIFICAR OS TRÊS DATAFRAMES AO MESMO TEMPO, COM COLUNAS COM NOMES DIFERENTES
 df_churn = df_customers.merge(df_services, on=['IDCliente']).merge(df_contracts, left_on=['IDCliente'], right_on=['customerID'])
 
 
 #retira a coluna do dataframe
-df_churn.drop(['customerID'], axis=1, inplace=True)
+#df_churn.drop(['customerID'], axis=1, inplace=True)
 
-print(df_churn.info())
+#print(df_churn.info())
+
+#-----------------------------------------------------------------------------------------------------------------/
+
+#ANÁLISE UNIVARIADA
+#HIPOTESES:
+# -A faixa etária  do cliente tem uma forte associação com o churn
+# -Um Cliente com menos de 6 meses de contrato é mais propenso ao churn
+# -Cliente com contrato mensal é mais propenso ao Churn
+
+#como contar pessoas que abondonaram um serviço
+#Contar clientes usando a variavel Churn como referencias
+#print(df_churn.Churn.value_counts())
+
+#quais os valores unicos desta variavel
+#print(df_churn.Churn.unique())
+
+#como é a distribuição de clientes percentualmente falando  que abandonaram ou não ou serviço
+#print(df_churn.Churn.value_counts(normalize=True))
+
+#Plot distribuição Churn (Quantidade)
+df_churn.Churn.value_counts().plot.bar()
+
+#outra opção de grafico
+
+ax = df_churn.Churn.value_counts().plot.bar()
+
+ax.bar_label(ax.containers[0])
