@@ -1,0 +1,13 @@
+correlação de spearman
+
+usar base inteira no calculo do target
+
+
+dar um parse na data
+
+calcular voluetria safrada:
+
+df.groupby("[target]",["safra"]).count()
+
+
+criar um filtro de detratores, promotores e neutro para cada região e depois para cada periodo de pesquisa.
